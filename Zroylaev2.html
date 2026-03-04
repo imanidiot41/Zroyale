@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lane Clash Prototype - Vs AI</title>
     <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com "></script>
     <!-- Use Inter font -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400 ;700;900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             background-color: #1f2937; /* Dark background */
@@ -112,7 +112,7 @@
 
         <!-- Elixir Bar (Player) -->
         <div id="elixir-bar" class="w-full bg-gray-700 rounded-lg p-2 mb-4 flex items-center shadow-lg">
-            <svg class="w-6 h-6 text-yellow-300 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-6 h-6 text-yellow-300 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg ">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1zm0 4a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1z" clip-rule="evenodd"></path>
             </svg>
             <div class="text-white font-bold mr-4">Elixir:</div>
@@ -237,9 +237,11 @@
         const BRIDGE_EXIT_Y = 270; 
 
 
-        // --- Unit Definitions (ALL CARDS) ---
-      const ALL_CARD_STATS = [
-    // Standard Cooldown: 2000ms (2 seconds)
+   // --- Unit Definitions (ALL CARDS) ---
+const FIRE_WIZARD_AOE_RADIUS = 30; // make sure this constant exists
+
+const ALL_CARD_STATS = [
+    // Standard Troops
     { name: 'Footman', cost: 3, maxHp: 700, damage: 150, hitspeed: 1.2, speed: 50, radius: 12, color: '#60a5fa', attackRange: 5, emoji: '🛡️', id: 'footman', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false },
     { name: 'Spearman', cost: 2, maxHp: 450, damage: 90, hitspeed: 1.0, speed: 55, radius: 10, color: '#14b8a6', attackRange: 5, emoji: '🔱', id: 'spearman', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false },
     { name: 'Knight', cost: 3, maxHp: 600, damage: 120, hitspeed: 1.1, speed: 40, radius: 12, color: '#9333ea', attackRange: 5, emoji: '⚔️', id: 'knight', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false },
@@ -295,7 +297,7 @@
         shieldDurationMS: 3000
     },
 
-    // ⭐ NEW CARD: Royal Recruits
+    // Royal Recruits
     {
         name: 'Royal Recruits',
         cost: 7,
@@ -312,95 +314,88 @@
         cooldown: 2000,
         spawnCount: 8,
         isAOE: false
+    },
+
+    // --- NEW 4 ORIGINAL TROOPS ---
+    {
+        name: 'Shadow Assassin',
+        cost: 4,
+        maxHp: 350,
+        damage: 300,
+        hitspeed: 0.9,
+        speed: 80,
+        radius: 10,
+        color: '#1f2937',
+        attackRange: 10,
+        emoji: '🗡️🌑',
+        id: 'shadow-assassin',
+        targetPreference: 'all',
+        cooldown: 2000,
+        spawnCount: 1,
+        isAOE: false,
+        stealth: true,
+        stealthDurationMS: 2000
+    },
+    {
+        name: 'Luminous Sprite',
+        cost: 3,
+        maxHp: 300,
+        damage: 120,
+        hitspeed: 0.8,
+        speed: 75,
+        radius: 10,
+        color: '#fcd34d',
+        attackRange: 90,
+        emoji: '✨🧚',
+        id: 'luminous-sprite',
+        targetPreference: 'all',
+        cooldown: 2000,
+        spawnCount: 1,
+        isAOE: true,
+        aoeRadius: 20,
+        healAllies: true,
+        healAmount: 50
+    },
+    {
+        name: 'Iron Fang Wolf',
+        cost: 5,
+        maxHp: 900,
+        damage: 180,
+        hitspeed: 1.1,
+        speed: 60,
+        radius: 12,
+        color: '#dc2626',
+        attackRange: 15,
+        emoji: '🐺⚔️',
+        id: 'iron-fang-wolf',
+        targetPreference: 'all',
+        cooldown: 2000,
+        spawnCount: 1,
+        isAOE: false,
+        biteBoost: true,
+        maxBoost: 2
+    },
+    {
+        name: 'Obsidian Sentinel',
+        cost: 6,
+        maxHp: 2000,
+        damage: 220,
+        hitspeed: 1.5,
+        speed: 35,
+        radius: 20,
+        color: '#171717',
+        attackRange: 30,
+        emoji: '🗿🔥',
+        id: 'obsidian-sentinel',
+        targetPreference: 'all',
+        cooldown: 2000,
+        spawnCount: 1,
+        isAOE: false,
+        hasShield: true,
+        initialShieldHP: 300,
+        shieldDurationMS: 5000
     }
-
-// 1️⃣ Shadow Assassin
-{
-    name: 'Shadow Assassin',
-    cost: 4,
-    maxHp: 350,
-    damage: 300,
-    hitspeed: 0.9,
-    speed: 80,
-    radius: 10,
-    color: '#1f2937',
-    attackRange: 10,
-    emoji: '🗡️🌑',
-    id: 'shadow-assassin',
-    targetPreference: 'all',
-    cooldown: 2000,
-    spawnCount: 1,
-    isAOE: false,
-    stealth: true,
-    stealthDurationMS: 2000
-},
-
-// 2️⃣ Luminous Sprite
-{
-    name: 'Luminous Sprite',
-    cost: 3,
-    maxHp: 300,
-    damage: 120,
-    hitspeed: 0.8,
-    speed: 75,
-    radius: 10,
-    color: '#fcd34d',
-    attackRange: 90,
-    emoji: '✨🧚',
-    id: 'luminous-sprite',
-    targetPreference: 'all',
-    cooldown: 2000,
-    spawnCount: 1,
-    isAOE: true,
-    aoeRadius: 20,
-    healAllies: true,
-    healAmount: 50
-},
-
-// 3️⃣ Iron Fang Wolf
-{
-    name: 'Iron Fang Wolf',
-    cost: 5,
-    maxHp: 900,
-    damage: 180,
-    hitspeed: 1.1,
-    speed: 60,
-    radius: 12,
-    color: '#dc2626',
-    attackRange: 15,
-    emoji: '🐺⚔️',
-    id: 'iron-fang-wolf',
-    targetPreference: 'all',
-    cooldown: 2000,
-    spawnCount: 1,
-    isAOE: false,
-    biteBoost: true,
-    maxBoost: 2
-},
-
-// 4️⃣ Obsidian Sentinel
-{
-    name: 'Obsidian Sentinel',
-    cost: 6,
-    maxHp: 2000,
-    damage: 220,
-    hitspeed: 1.5,
-    speed: 35,
-    radius: 20,
-    color: '#171717',
-    attackRange: 30,
-    emoji: '🗿🔥',
-    id: 'obsidian-sentinel',
-    targetPreference: 'all',
-    cooldown: 2000,
-    spawnCount: 1,
-    isAOE: false,
-    hasShield: true,
-    initialShieldHP: 300,
-    shieldDurationMS: 5000
-}
-  ];
-
+];
   
         
         // Initial player deck is empty until selected
@@ -1562,7 +1557,8 @@
             setupEventListeners();
             
             // Start by immediately prompting deck selection
-ue        };
+            openDeckSelectionModal();
+        };
 
     </script>
 </body>
