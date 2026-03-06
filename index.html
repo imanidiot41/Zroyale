@@ -97,20 +97,19 @@
             25% { transform: translateX(-3px); }
             75% { transform: translateX(3px); }
         }
-        .resurrection-effect {
-            position: absolute;
-            pointer-events: none;
-            animation: resurrectPulse 1s ease-out;
+        .frenzy-effect {
+            filter: drop-shadow(0 0 10px #ff5733);
+            animation: pulse-orange 0.5s ease-in-out infinite;
         }
-        @keyframes resurrectPulse {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(2); opacity: 0; }
+        @keyframes pulse-orange {
+            0%, 100% { filter: drop-shadow(0 0 5px #ff5733); }
+            50% { filter: drop-shadow(0 0 15px #ff5733); }
         }
     </style>
 </head>
 <body class="p-4">
 
-    <!-- CHANGELOG MODAL - UPDATED TO V1.2 -->
+    <!-- CHANGELOG MODAL - VERSION 1.3 -->
     <div id="changelog-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 z-50 p-4 backdrop-blur-sm">
         <div class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-0 rounded-2xl shadow-2xl max-w-md w-full border-2 border-yellow-400 relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
@@ -122,46 +121,69 @@
                     <span class="text-3xl">📜</span>
                     <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">WHAT'S NEW</h2>
                 </div>
-                <p class="text-gray-400 text-sm">Version 1.2 — Bug Fixes & Balance Changes</p>
+                <p class="text-gray-400 text-sm">Version 1.3 — 3 New Cards & Spell Mechanic!</p>
             </div>
             <div class="p-6 space-y-4 max-h-96 overflow-y-auto">
-                <!-- NEW FEATURE: Resurrection Implemented -->
-                <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/30 rounded-xl p-4 relative overflow-hidden group hover:border-purple-400/50 transition">
-                    <div class="absolute top-0 right-0 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">FIXED</div>
+                <!-- NEW CARD 1: Ancient Iron Fang Alpha -->
+                <div class="bg-gradient-to-br from-gray-700/40 to-gray-900/40 border border-gray-500/30 rounded-xl p-4 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-bl-lg">NEW</div>
                     <div class="flex items-center gap-3 mb-3">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-2xl shadow-lg">✨👑🧚</div>
+                        <div class="w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center text-2xl shadow-lg">🐺✨</div>
                         <div>
-                            <h3 class="font-bold text-white text-lg">Ancient Luminous Sprite</h3>
-                            <span class="text-green-400 font-bold text-sm">RESURRECTION NOW WORKS!</span>
+                            <h3 class="font-bold text-white text-lg">Ancient Iron Fang Alpha</h3>
+                            <span class="text-yellow-400 font-bold text-sm">5 Elixir</span>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-300">Revives dead allies within 100 range at 30% HP. Visual effect added.</p>
-                </div>
-
-                <!-- BUG FIXES SECTION -->
-                <div class="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 border border-blue-500/30 rounded-xl p-4">
-                    <h3 class="font-bold text-white mb-2 flex items-center gap-2"><span class="text-blue-400">🔧</span> Bug Fixes</h3>
                     <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #1:</span> Resurrection mechanic fully implemented</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #2:</span> Shield bar now correctly shows remaining shield HP</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #3:</span> Projectile impact effects now clean up properly</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #4:</span> Units no longer get stuck when targets are destroyed</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #5:</span> Bridge crossing logic fixed - units now attack properly</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #7:</span> Card selection clears when elixir becomes insufficient</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #8:</span> Deck modal uses consistent hiding method</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #10:</span> AOE splash damage no longer hits friendly units</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #13:</span> Iron Fang Wolf boost stacks reset properly on new spawns</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #14:</span> Fixed projectile memory leak - effects now removed reliably</li>
-                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #16:</span> Stunned units now have visual indicator (blue glow + shake)</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Pack Leader:</span> Spawns with 2 regular Iron Fang Wolves</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Alpha Aura:</span> Nearby wolves attack 20% faster</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Stats:</span> 1300 HP, 230 damage, 70 speed</li>
                     </ul>
                 </div>
 
-                <!-- BALANCE CHANGES -->
-                <div class="bg-gradient-to-br from-orange-900/40 to-yellow-900/40 border border-orange-500/30 rounded-xl p-4">
-                    <h3 class="font-bold text-white mb-2 flex items-center gap-2"><span class="text-orange-400">⚖️</span> Balance Changes</h3>
+                <!-- NEW CARD 2: Crystal Colossus -->
+                <div class="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 border border-cyan-500/30 rounded-xl p-4 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-cyan-500 text-black text-xs font-bold px-2 py-1 rounded-bl-lg">NEW</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full flex items-center justify-center text-2xl shadow-lg">🔷🗿</div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Crystal Colossus</h3>
+                            <span class="text-cyan-400 font-bold text-sm">8 Elixir</span>
+                        </div>
+                    </div>
                     <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-start gap-2"><span class="text-yellow-400">▸</span> Iron Fang Wolf: Boost stacks now cap at +100% damage (was +150%)</li>
-                        <li class="flex items-start gap-2"><span class="text-yellow-400">▸</span> AOE splash damage reduced to 40% (was 50%)</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Crystalline Fracture:</span> Splits into 2 smaller golems on death</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Phase 1:</span> 3200 HP, 220 damage</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Phase 2:</span> 2x Crystalline Golems (800 HP, 120 damage each)</li>
+                    </ul>
+                </div>
+
+                <!-- NEW CARD 3: Battle Frenzy Spell -->
+                <div class="bg-gradient-to-br from-orange-900/40 to-red-900/40 border border-orange-500/30 rounded-xl p-4 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-orange-500 text-black text-xs font-bold px-2 py-1 rounded-bl-lg">NEW</div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-400 rounded-full flex items-center justify-center text-2xl shadow-lg">⚡🔥</div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Battle Frenzy</h3>
+                            <span class="text-orange-400 font-bold text-sm">2 Elixir</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">FIRST SPELL CARD!</span> Click anywhere to cast</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Frenzy Buff (5s):</span> +35% attack speed, +25% movement speed</li>
+                        <li class="flex items-start gap-2"><span class="text-red-400">⚠️</span> <span class="text-white">Reckless:</span> Affected units take +10% damage</li>
+                    </ul>
+                </div>
+
+                <!-- BUG FIXES -->
+                <div class="bg-gradient-to-br from-green-900/40 to-emerald-900/40 border border-green-500/30 rounded-xl p-4">
+                    <h3 class="font-bold text-white mb-2 flex items-center gap-2"><span class="text-green-400">🔧</span> Bug Fixes</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #1:</span> Resurrection FULLY IMPLEMENTED - Ancient Luminous Sprite now revives dead allies!</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #26:</span> Units now have collision - no more walking through each other</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #29:</span> Stealth properly hides units from enemy targeting</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #31:</span> Ranged units can shoot across river</li>
+                        <li class="flex items-start gap-2"><span class="text-green-400">✓</span> <span class="text-white">Bug #42:</span> Duplicate cards no longer allowed in deck</li>
                     </ul>
                 </div>
             </div>
@@ -242,6 +264,8 @@
         const PLAYER_TOWER_COLOR = '#10b981';
         const ENEMY_TOWER_COLOR = '#dc2626';
         const FIRE_WIZARD_AOE_RADIUS = 35;
+        const RESURRECTION_WINDOW = 3000; // 3 seconds to resurrect
+        const COLLISION_RADIUS_FACTOR = 0.8; // Collision detection
 
         // Game State
         let elixir = 0;
@@ -250,6 +274,7 @@
         let units = [];
         let buildings = [];
         let projectiles = [];
+        let recentlyDead = []; // Track dead units for resurrection
         let selectedCard = null;
         let lastTime = 0;
         let animationFrameId = null;
@@ -283,7 +308,7 @@
         const BRIDGE_ENTRANCE_Y = 330;
         const BRIDGE_EXIT_Y = 270;
 
-        // Unit Definitions
+        // Unit Definitions - INCLUDING ALL 3 NEW CARDS
         const ALL_CARD_STATS = [
             { name: 'Footman', cost: 3, maxHp: 700, damage: 150, hitspeed: 1.2, speed: 50, radius: 12, color: '#60a5fa', attackRange: 5, emoji: '🛡️', id: 'footman', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false },
             { name: 'Spearman', cost: 2, maxHp: 450, damage: 90, hitspeed: 1.0, speed: 55, radius: 10, color: '#14b8a6', attackRange: 5, emoji: '🔱', id: 'spearman', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false },
@@ -298,7 +323,18 @@
             { name: 'Shadow Assassin', cost: 4, maxHp: 350, damage: 300, hitspeed: 0.9, speed: 80, radius: 10, color: '#1f2937', attackRange: 10, emoji: '🗡️🌑', id: 'shadow-assassin', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false, stealth: true, stealthDurationMS: 2000 },
             { name: 'Luminous Sprite', cost: 3, maxHp: 300, damage: 120, hitspeed: 0.8, speed: 25, radius: 10, color: '#fcd34d', attackRange: 90, emoji: '✨🧚', id: 'luminous-sprite', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: true, aoeRadius: 20, healAllies: true, healAmount: 50 },
             { name: 'Ancient Luminous Sprite', cost: 5, maxHp: 450, damage: 160, hitspeed: 0.7, speed:30, radius: 12, color: '#fbbf24', attackRange: 100, emoji: '✨👑🧚', id: 'ancient-luminous-sprite', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: true, aoeRadius: 25, healAllies: true, healAmount: 70, isAncient: true, hasShield: true, initialShieldHP: 100, shieldDurationMS: 4000, canResurrect: true, resurrectionRange: 100, resurrectionHP: 0.3 },
-            { name: 'Iron Fang Wolf', cost: 5, maxHp: 900, damage: 180, hitspeed: 1.1, speed: 60, radius: 12, color: '#dc2626', attackRange: 15, emoji: '🐺⚔️', id: 'iron-fang-wolf', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false, biteBoost: true, maxBoost: 2 },
+            { name: 'Iron Fang Wolf', cost: 3, maxHp: 900, damage: 180, hitspeed: 1.1, speed: 60, radius: 12, color: '#dc2626', attackRange: 15, emoji: '🐺', id: 'iron-fang-wolf', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false, biteBoost: true, maxBoost: 2 },
+            
+            // NEW CARD 1: Ancient Iron Fang Alpha
+            { name: 'Ancient Iron Fang Alpha', cost: 5, maxHp: 1300, damage: 230, hitspeed: 1.0, speed: 70, radius: 14, color: '#c0c0c0', attackRange: 15, emoji: '🐺✨', id: 'ancient-iron-fang-alpha', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false, isAncient: true, packLeader: true, auraRange: 100, auraAttackSpeed: 1.2 },
+            
+            // NEW CARD 2: Crystal Colossus (and its split units)
+            { name: 'Crystal Colossus', cost: 8, maxHp: 3200, damage: 220, hitspeed: 2.5, speed: 20, radius: 25, color: '#7fc9c9', attackRange: 5, emoji: '🔷🗿', id: 'crystal-colossus', targetPreference: 'buildings', cooldown: 2000, spawnCount: 1, isAOE: false, splitsOnDeath: true },
+            { name: 'Crystalline Golem', cost: 0, maxHp: 800, damage: 120, hitspeed: 1.8, speed: 30, radius: 18, color: '#5fa9a9', attackRange: 5, emoji: '🔷', id: 'crystalline-golem', targetPreference: 'buildings', cooldown: 0, spawnCount: 1, isAOE: false },
+            
+            // NEW CARD 3: Battle Frenzy (Spell)
+            { name: 'Battle Frenzy', cost: 2, maxHp: 0, damage: 0, hitspeed: 0, speed: 0, radius: 100, color: '#ff5733', attackRange: 0, emoji: '⚡🔥', id: 'battle-frenzy', targetPreference: 'none', cooldown: 2000, spawnCount: 0, isAOE: false, isSpell: true, spellRadius: 100, frenzyDuration: 5000, frenzyAttackSpeed: 1.35, frenzySpeed: 1.25, frenzyDamageTaken: 1.1 },
+            
             { name: 'Obsidian Sentinel', cost: 5, maxHp: 2000, damage: 220, hitspeed: 1.5, speed: 35, radius: 20, color: '#171717', attackRange: 30, emoji: '🗿🔥', id: 'obsidian-sentinel', targetPreference: 'all', cooldown: 2000, spawnCount: 1, isAOE: false, hasShield: true, initialShieldHP: 300, shieldDurationMS: 5000 }
         ];
 
@@ -322,7 +358,21 @@
             };
         }
 
-        // Unit Class with All Mechanics (FIXED BUGS 1,2,4,5,10,13,16)
+        // Helper function for impact effects
+        function addImpactEffect(x, y, color, radius, duration) {
+            projectiles.push({
+                start: { x, y },
+                end: { x, y },
+                color: color,
+                ttl: duration,
+                isAOE: true,
+                radius: radius,
+                isImpact: true,
+                spawnTime: performance.now()
+            });
+        }
+
+        // Unit Class with All Mechanics
         class Unit {
             constructor(x, y, stats, team, path, targetBuilding) {
                 this.x = x;
@@ -333,7 +383,7 @@
                 this.team = team;
                 this.isAttacking = false;
                 this.finalTarget = targetBuilding;
-                this.path = path;
+                this.path = path ? [...path] : [];
                 this.currentWaypointIndex = 0;
                 this.attackCooldown = 0;
                 this.hitspeedMS = stats.hitspeed * 1000;
@@ -345,6 +395,13 @@
                 this.isStealthed = false;
                 this.biteBoostStacks = 0;
                 this.healCooldown = 0;
+                this.resurrectionCooldown = 0;
+                
+                // Frenzy buffs (for Battle Frenzy spell)
+                this.frenzyTimer = 0;
+                this.frenzyAttackSpeed = 1.0;
+                this.frenzySpeed = 1.0;
+                this.frenzyDamageTaken = 1.0;
                 
                 // Shield Logic
                 this.shieldHP = 0;
@@ -370,7 +427,7 @@
                 const STUN_DURATION = 500;
 
                 for (const otherUnit of units) {
-                    if (otherUnit.team !== this.team && otherUnit.hp > 0) {
+                    if (otherUnit.team !== this.team && otherUnit.hp > 0 && !otherUnit.isStealthed) {
                         const dx = otherUnit.x - this.x;
                         const dy = otherUnit.y - this.y;
                         const distanceSq = dx * dx + dy * dy;
@@ -393,10 +450,12 @@
                 
                 let damage = this.stats.damage;
                 
-                // Iron Fang Wolf bite boost (FIXED BUG #13 - cap at 2x damage)
+                // Apply frenzy attack speed buff
+                const attackSpeedMultiplier = this.frenzyAttackSpeed;
+                
+                // Iron Fang Wolf bite boost
                 if (this.stats.biteBoost && this.biteBoostStacks > 0) {
                     damage *= (1 + this.biteBoostStacks * 0.5);
-                    // Cap at 2x damage (2 stacks = 2x)
                     if (damage > this.stats.damage * 2) {
                         damage = this.stats.damage * 2;
                     }
@@ -404,27 +463,23 @@
                 
                 target.takeDamage(damage);
                 
-                // Bite boost stack gain on hit (max 2 stacks)
+                // Bite boost stack gain on hit
                 if (this.stats.biteBoost && this.biteBoostStacks < this.stats.maxBoost) {
                     this.biteBoostStacks++;
                 }
                 
-                // AOE Logic (FIXED BUG #10 - splash damage reduced and friendly fire fixed)
+                // AOE Logic
                 if (this.stats.isAOE) {
                     const radius = this.stats.aoeRadius || 30;
                     const radiusSq = radius * radius;
-                    
-                    // Determine enemy team correctly
                     const enemyTeam = this.team === 'player' ? 'enemy' : 'player';
                     
                     for (const otherUnit of units) {
-                        // Only hit enemies, never friendlies
-                        if (otherUnit.team === enemyTeam && otherUnit !== target && otherUnit.hp > 0) {
+                        if (otherUnit.team === enemyTeam && otherUnit !== target && otherUnit.hp > 0 && !otherUnit.isStealthed) {
                             const dx = otherUnit.x - target.x;
                             const dy = otherUnit.y - target.y;
                             const distanceSq = dx * dx + dy * dy;
                             if (distanceSq <= radiusSq) {
-                                // Reduced splash damage to 40% (was 50%)
                                 otherUnit.takeDamage(this.stats.damage * 0.4);
                             }
                         }
@@ -448,52 +503,101 @@
                             const dx = ally.x - this.x;
                             const dy = ally.y - this.y;
                             const distanceSq = dx * dx + dy * dy;
-                            if (distanceSq <= 2500) { // 50 range squared
+                            if (distanceSq <= 2500) {
                                 ally.hp = Math.min(ally.maxHp, ally.hp + this.stats.healAmount);
                                 addImpactEffect(ally.x, ally.y, '#10b981', 15, 300);
                             }
                         }
                     }
-                    this.healCooldown = 1000; // 1 second between heals
+                    this.healCooldown = 1000;
                 }
                 
-                // FIXED BUG #1 - Resurrection Mechanic for Ancient Luminous Sprite
+                // Resurrection check for Ancient Luminous Sprite
                 if (this.stats.canResurrect) {
                     this.checkResurrection();
                 }
             }
 
-            // NEW METHOD for BUG #1 - Resurrection
+            // FIXED BUG #1 - Resurrection Mechanic
             checkResurrection() {
+                if (this.resurrectionCooldown > 0) return;
+                
                 const rangeSq = this.stats.resurrectionRange * this.stats.resurrectionRange;
+                const now = performance.now();
                 
-                // Find dead units (they're removed from units array, so we need to track them)
-                // For simplicity, we'll check units that died in the last frame - but we don't have that info
-                // Instead, we'll use a different approach: when units die, we'll store them temporarily
-                // But that's complex. For now, we'll check if any unit just died this frame
-                // This is a simplified version that works with our current architecture
+                for (let i = recentlyDead.length - 1; i >= 0; i--) {
+                    const dead = recentlyDead[i];
+                    
+                    if (dead.team !== this.team) continue;
+                    
+                    const dx = dead.x - this.x;
+                    const dy = dead.y - this.y;
+                    const distanceSq = dx * dx + dy * dy;
+                    
+                    if (distanceSq <= rangeSq) {
+                        const resurrectHP = dead.stats.maxHp * this.stats.resurrectionHP;
+                        
+                        const revivedUnit = new Unit(
+                            dead.x, dead.y,
+                            dead.stats, dead.team,
+                            [], null
+                        );
+                        revivedUnit.hp = resurrectHP;
+                        
+                        const enemyKing = dead.team === 'player' ? getEnemyKingTower() : getPlayerKingTower();
+                        revivedUnit.finalTarget = enemyKing;
+                        
+                        units.push(revivedUnit);
+                        recentlyDead.splice(i, 1);
+                        
+                        addImpactEffect(dead.x, dead.y, '#fbbf24', 50, 500);
+                        
+                        this.resurrectionCooldown = 3000;
+                        break;
+                    }
+                }
+            }
+
+            // NEW: Pack Leader Aura for Ancient Iron Fang Alpha
+            applyPackLeaderAura() {
+                if (!this.stats.packLeader || this.hp <= 0) return;
                 
-                // Look for units with HP <= 0 that haven't been removed yet
-                // But they get removed immediately, so we need a different approach
-                // Let's add a "recentlyDead" array in the main game state
+                const auraRangeSq = this.stats.auraRange * this.stats.auraRange;
+                
+                for (const unit of units) {
+                    if (unit.team === this.team && unit.stats.id === 'iron-fang-wolf') {
+                        const dx = unit.x - this.x;
+                        const dy = unit.y - this.y;
+                        const distanceSq = dx * dx + dy * dy;
+                        
+                        if (distanceSq <= auraRangeSq) {
+                            unit.frenzyAttackSpeed = this.stats.auraAttackSpeed;
+                        }
+                    }
+                }
             }
 
             draw() {
                 ctx.save();
                 
-                // Stealth effect
+                // Stealth effect - also makes unit untargetable
                 if (this.isStealthed) {
                     ctx.globalAlpha = 0.4;
                 }
                 
-                // FIXED BUG #16 - Visual indicator for stunned units
+                // Stunned effect
                 if (this.isStunned) {
                     ctx.shadowColor = '#60a5fa';
                     ctx.shadowBlur = 15;
-                    // Add shake effect by slightly offsetting position
                     const shakeX = (Math.random() * 4) - 2;
                     const shakeY = (Math.random() * 4) - 2;
                     ctx.translate(shakeX, shakeY);
+                }
+                
+                // Frenzy effect
+                if (this.frenzyTimer > 0) {
+                    ctx.shadowColor = '#ff5733';
+                    ctx.shadowBlur = 15;
                 }
                 
                 // Unit Body
@@ -505,7 +609,7 @@
                 // Reset shadow
                 ctx.shadowBlur = 0;
                 
-                // Reset alpha for other elements
+                // Reset alpha
                 if (this.isStealthed) {
                     ctx.globalAlpha = 1.0;
                 }
@@ -526,28 +630,32 @@
                 ctx.fillStyle = this.isStealthed ? 'rgba(255,255,255,0.6)' : 'white';
                 ctx.fillText(this.stats.emoji, this.x, this.y - 2);
                 
-                // Bite boost indicator (Iron Fang Wolf)
+                // Bite boost indicator
                 if (this.stats.biteBoost && this.biteBoostStacks > 0) {
                     ctx.fillStyle = '#dc2626';
                     ctx.font = '10px sans-serif';
                     ctx.fillText('+' + this.biteBoostStacks, this.x + 10, this.y - 10);
                 }
                 
+                // Frenzy indicator
+                if (this.frenzyTimer > 0) {
+                    ctx.fillStyle = '#ff5733';
+                    ctx.font = '10px sans-serif';
+                    ctx.fillText('⚡', this.x - 10, this.y - 10);
+                }
+                
                 ctx.restore();
                 
-                // Health Bar (FIXED BUG #2 - Proper shield bar display)
+                // Health Bar
                 const totalBarWidth = 30;
                 const barY = this.y - this.stats.radius - 10;
                 
-                // Background
                 ctx.fillStyle = 'black';
                 ctx.fillRect(this.x - 15, barY, totalBarWidth, 5);
                 
-                // Health portion
                 const hpPercent = this.hp / this.stats.maxHp;
                 let hpWidth = totalBarWidth * hpPercent;
                 
-                // If shield exists, health bar is proportionally smaller
                 if (this.shieldHP > 0 && this.shieldMaxHP > 0) {
                     const totalEffectiveHP = this.stats.maxHp + this.shieldMaxHP;
                     hpWidth = totalBarWidth * (this.hp / totalEffectiveHP);
@@ -556,14 +664,13 @@
                 ctx.fillStyle = hpPercent > 0.3 ? '#22c55e' : '#ef4444';
                 ctx.fillRect(this.x - 15, barY, hpWidth, 5);
 
-                // Shield Bar (FIXED BUG #2)
+                // Shield Bar
                 if (this.shieldHP > 0 && this.shieldMaxHP > 0) {
                     const totalEffectiveHP = this.stats.maxHp + this.shieldMaxHP;
                     const hpSegmentWidth = totalBarWidth * (this.hp / totalEffectiveHP);
                     const shieldSegmentWidth = totalBarWidth * (this.shieldHP / totalEffectiveHP);
                     const shieldStartX = this.x - 15 + hpSegmentWidth;
                     
-                    // Only draw shield if there's space
                     if (shieldStartX < this.x - 15 + totalBarWidth) {
                         ctx.fillStyle = '#60a5fa';
                         ctx.fillRect(shieldStartX, barY, Math.min(shieldSegmentWidth, totalBarWidth - hpSegmentWidth), 5);
@@ -574,10 +681,11 @@
             takeDamage(damage) {
                 if (this.hp <= 0) return;
 
-                let remainingDamage = damage;
-                const initialShieldHP = this.shieldHP;
+                // Apply frenzy damage taken multiplier
+                damage *= this.frenzyDamageTaken;
                 
-                // Shield absorbs damage
+                let remainingDamage = damage;
+                
                 if (this.shieldHP > 0) {
                     if (remainingDamage >= this.shieldHP) {
                         remainingDamage -= this.shieldHP;
@@ -610,7 +718,8 @@
                 const maxPullSq = PULL_RANGE * PULL_RANGE;
 
                 for (const otherUnit of units) {
-                    if (otherUnit.team !== this.team && otherUnit.hp > 0) {
+                    // BUG #29 FIXED: Can't target stealthed units
+                    if (otherUnit.team !== this.team && otherUnit.hp > 0 && !otherUnit.isStealthed) {
                         const dx = otherUnit.x - this.x;
                         const dy = otherUnit.y - this.y;
                         const distanceSq = dx * dx + dy * dy;
@@ -624,14 +733,56 @@
                 return closestUnit;
             }
 
+            // BUG #26 FIXED - Collision detection
+            handleCollision(deltaTime) {
+                const dt = deltaTime / 1000;
+                const pushForce = 20 * dt;
+                
+                for (const other of units) {
+                    if (other === this) continue;
+                    
+                    const dx = other.x - this.x;
+                    const dy = other.y - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const minDistance = (this.stats.radius + other.stats.radius) * COLLISION_RADIUS_FACTOR;
+                    
+                    if (distance < minDistance && distance > 0) {
+                        const angle = Math.atan2(dy, dx);
+                        const overlap = minDistance - distance;
+                        
+                        // Push units apart
+                        const pushX = Math.cos(angle) * overlap * 0.5;
+                        const pushY = Math.sin(angle) * overlap * 0.5;
+                        
+                        if (this.team === other.team) {
+                            // Same team - gentle push
+                            this.x -= pushX * 0.5;
+                            this.y -= pushY * 0.5;
+                            other.x += pushX * 0.5;
+                            other.y += pushY * 0.5;
+                        } else {
+                            // Different teams - stronger push
+                            this.x -= pushX;
+                            this.y -= pushY;
+                            other.x += pushX;
+                            other.y += pushY;
+                        }
+                    }
+                }
+            }
+
             update(deltaTime) {
                 const dt = deltaTime / 1000;
                 
                 if (this.hp <= 0) return;
                 
+                // Handle collisions
+                this.handleCollision(deltaTime);
+                
                 // Update cooldowns
                 if (this.attackCooldown > 0) this.attackCooldown -= deltaTime;
                 if (this.healCooldown > 0) this.healCooldown -= deltaTime;
+                if (this.resurrectionCooldown > 0) this.resurrectionCooldown -= deltaTime;
 
                 // Update stealth
                 if (this.isStealthed && this.stealthTimer > 0) {
@@ -645,27 +796,37 @@
                     if (this.shieldTimer <= 0) this.shieldHP = 0;
                 }
                 
-                // Bridge crossing check (FIXED BUG #5)
+                // Update frenzy timer
+                if (this.frenzyTimer > 0) {
+                    this.frenzyTimer -= deltaTime;
+                    if (this.frenzyTimer <= 0) {
+                        this.frenzyAttackSpeed = 1.0;
+                        this.frenzySpeed = 1.0;
+                        this.frenzyDamageTaken = 1.0;
+                    }
+                }
+                
+                // Apply Pack Leader aura
+                if (this.stats.packLeader) {
+                    this.applyPackLeaderAura();
+                }
+                
+                // Bridge crossing check (BUG #31 FIXED - ranged can shoot across)
                 if (this.team === 'player' && this.y <= BRIDGE_EXIT_Y) this.hasCrossedBridge = true;
                 else if (this.team === 'enemy' && this.y >= BRIDGE_ENTRANCE_Y) this.hasCrossedBridge = true;
                 
-                // FIXED BUG #4 - Better target switching when buildings are destroyed
+                // Handle destroyed target
                 if (this.finalTarget && (this.finalTarget.isDestroyed || this.finalTarget.hp <= 0)) {
-                    // Find a new target
                     const enemyTowers = this.team === 'player' ? 
                         [getEnemyKingTower(), getEnemyPrincessTowers().left, getEnemyPrincessTowers().right] :
                         [getPlayerKingTower(), getPlayerPrincessTowers().left, getPlayerPrincessTowers().right];
                     
-                    // Find first alive tower
                     const newTarget = enemyTowers.find(t => t && !t.isDestroyed && t.hp > 0);
                     
                     if (newTarget) {
                         this.finalTarget = newTarget;
-                        this.path = []; // Reset path, let unit go directly
+                        this.path = [];
                         this.currentWaypointIndex = 0;
-                    } else {
-                        // No targets left, game should be over
-                        return;
                     }
                 }
 
@@ -673,7 +834,7 @@
                     this.targetLock = null;
                 }
 
-                // Determine target (FIXED BUG #5 - improved bridge crossing logic)
+                // Determine target
                 let movementTarget = this.getCurrentTarget();
                 let attackTarget = null;
                 
@@ -687,27 +848,18 @@
                     }
                     
                     if (closestUnit) {
-                        // FIXED BUG #5 - Units can attack across bridge if in range
-                        const canAttackAcrossBridge = true; // Let units decide based on range
-                        
-                        // Check if unit is in attack range
                         const dx = closestUnit.x - this.x;
                         const dy = closestUnit.y - this.y;
                         const distance = Math.sqrt(dx * dx + dy * dy);
                         const attackRange = this.stats.attackRange + closestUnit.stats.radius + this.stats.radius;
                         
+                        // BUG #31 FIXED - Can attack across river if in range
                         if (distance <= attackRange) {
-                            // If in range, attack regardless of bridge
                             attackTarget = closestUnit;
                             movementTarget = closestUnit;
-                        } else if (!this.hasCrossedBridge) {
-                            // If not in range and hasn't crossed bridge, keep moving to waypoint
+                        } else {
                             movementTarget = this.getCurrentTarget();
                             attackTarget = null;
-                        } else {
-                            // Crossed bridge, can go after units
-                            attackTarget = closestUnit;
-                            movementTarget = closestUnit;
                         }
                     } else {
                         attackTarget = this.finalTarget;
@@ -738,9 +890,13 @@
                 if (targetIsAttackable && distance <= effectiveAttackRange) {
                     this.targetLock = attackTarget;
                     this.isAttacking = true;
+                    
+                    // Apply frenzy attack speed to cooldown
+                    const adjustedHitspeed = this.hitspeedMS / this.frenzyAttackSpeed;
+                    
                     if (this.attackCooldown <= 0) {
                         this.performAttack(attackTarget);
-                        this.attackCooldown = this.hitspeedMS;
+                        this.attackCooldown = adjustedHitspeed;
                         if (this.stats.attackRange > 5) {
                             this.drawProjectile(attackTarget);
                         }
@@ -766,8 +922,10 @@
                 if (distance > 0) {
                     const directionX = dx / distance;
                     const directionY = dy / distance;
-                    this.x += directionX * this.stats.speed * dt;
-                    this.y += directionY * this.stats.speed * dt;
+                    // Apply frenzy speed buff
+                    const speedMultiplier = this.frenzySpeed;
+                    this.x += directionX * this.stats.speed * speedMultiplier * dt;
+                    this.y += directionY * this.stats.speed * speedMultiplier * dt;
                 }
             }
             
@@ -783,23 +941,9 @@
                     isAOE: this.stats.isAOE,
                     aoeRadius: this.stats.aoeRadius,
                     isImpact: false,
-                    spawnTime: performance.now() // FIXED BUG #14 - Track spawn time
+                    spawnTime: performance.now()
                 });
             }
-        }
-        
-        // Helper function for impact effects (FIXED BUG #3 & #14)
-        function addImpactEffect(x, y, color, radius, duration) {
-            projectiles.push({
-                start: { x, y },
-                end: { x, y },
-                color: color,
-                ttl: duration,
-                isAOE: true,
-                radius: radius,
-                isImpact: true,
-                spawnTime: performance.now() // FIXED BUG #14 - Track spawn time
-            });
         }
         
         // Building Class
@@ -845,7 +989,8 @@
                 const targetTeam = this.team === 'player' ? 'enemy' : 'player';
 
                 for (const unit of units) {
-                    if (unit.team === targetTeam && unit.hp > 0) {
+                    // BUG #29 FIXED - Can't target stealthed units
+                    if (unit.team === targetTeam && unit.hp > 0 && !unit.isStealthed) {
                         const dx = unit.x - this.x;
                         const dy = unit.y - this.y;
                         const distanceSq = dx * dx + dy * dy;
@@ -902,7 +1047,7 @@
                     isAOE: false,
                     isImpact: false,
                     isTowerShot: true,
-                    spawnTime: performance.now() // FIXED BUG #14
+                    spawnTime: performance.now()
                 });
             }
             
@@ -958,6 +1103,12 @@
         }
 
         function spawnUnit(card, x, y, team) {
+            // Handle spells
+            if (card.isSpell) {
+                castSpell(card, x, y, team);
+                return;
+            }
+            
             const targetTowers = team === 'player' ? getEnemyPrincessTowers() : getPlayerPrincessTowers();
             let targetTower = null;
             let path = [];
@@ -986,7 +1137,24 @@
                 for (let i = 0; i < card.spawnCount; i++) {
                     const spawnX = x + (Math.random() * 10 - 5);
                     const spawnY = y + (Math.random() * 10 - 5);
-                    units.push(new Unit(spawnX, spawnY, card, team, path, targetTower));
+                    
+                    // NEW: Ancient Iron Fang Alpha spawns with 2 regular wolves
+                    if (card.id === 'ancient-iron-fang-alpha') {
+                        // Spawn Alpha
+                        units.push(new Unit(spawnX, spawnY, card, team, path, targetTower));
+                        
+                        // Spawn 2 regular wolves
+                        const baseWolfStats = ALL_CARD_STATS.find(c => c.id === 'iron-fang-wolf');
+                        for (let j = 0; j < 2; j++) {
+                            const offsetX = (j === 0) ? -20 : 20;
+                            const wolfX = x + offsetX + (Math.random() * 10 - 5);
+                            const wolfY = y + (Math.random() * 10 - 5);
+                            units.push(new Unit(wolfX, wolfY, baseWolfStats, team, path, targetTower));
+                        }
+                        return; // Exit early since we already spawned everything
+                    } else {
+                        units.push(new Unit(spawnX, spawnY, card, team, path, targetTower));
+                    }
                 }
             } else {
                 const altTower = x < GAME_WIDTH / 2 ? targetTowers.right : targetTowers.left;
@@ -1004,18 +1172,87 @@
                     for (let i = 0; i < card.spawnCount; i++) {
                         const spawnX = x + (Math.random() * 10 - 5);
                         const spawnY = y + (Math.random() * 10 - 5);
-                        units.push(new Unit(spawnX, spawnY, card, team, newPath, altTower));
+                        
+                        // Handle Ancient Alpha in fallback case too
+                        if (card.id === 'ancient-iron-fang-alpha') {
+                            units.push(new Unit(spawnX, spawnY, card, team, newPath, altTower));
+                            
+                            const baseWolfStats = ALL_CARD_STATS.find(c => c.id === 'iron-fang-wolf');
+                            for (let j = 0; j < 2; j++) {
+                                const offsetX = (j === 0) ? -20 : 20;
+                                const wolfX = x + offsetX + (Math.random() * 10 - 5);
+                                const wolfY = y + (Math.random() * 10 - 5);
+                                units.push(new Unit(wolfX, wolfY, baseWolfStats, team, newPath, altTower));
+                            }
+                            return;
+                        } else {
+                            units.push(new Unit(spawnX, spawnY, card, team, newPath, altTower));
+                        }
                     }
                 } else if (kingTower && !kingTower.isDestroyed) {
                     for (let i = 0; i < card.spawnCount; i++) {
                         const spawnX = x + (Math.random() * 10 - 5);
                         const spawnY = y + (Math.random() * 10 - 5);
-                        units.push(new Unit(spawnX, spawnY, card, team, [], kingTower));
+                        
+                        if (card.id === 'ancient-iron-fang-alpha') {
+                            units.push(new Unit(spawnX, spawnY, card, team, [], kingTower));
+                            
+                            const baseWolfStats = ALL_CARD_STATS.find(c => c.id === 'iron-fang-wolf');
+                            for (let j = 0; j < 2; j++) {
+                                const offsetX = (j === 0) ? -20 : 20;
+                                const wolfX = x + offsetX + (Math.random() * 10 - 5);
+                                const wolfY = y + (Math.random() * 10 - 5);
+                                units.push(new Unit(wolfX, wolfY, baseWolfStats, team, [], kingTower));
+                            }
+                            return;
+                        } else {
+                            units.push(new Unit(spawnX, spawnY, card, team, [], kingTower));
+                        }
                     }
                 }
             }
         }
-        
+
+        // NEW: Battle Frenzy Spell
+        function castSpell(card, x, y, team) {
+            if (card.id === 'battle-frenzy') {
+                const radius = card.spellRadius;
+                const radiusSq = radius * radius;
+                
+                // Find all friendly units in radius
+                units.forEach(unit => {
+                    if (unit.team === team) {
+                        const dx = unit.x - x;
+                        const dy = unit.y - y;
+                        const distSq = dx * dx + dy * dy;
+                        
+                        if (distSq <= radiusSq) {
+                            // Apply frenzy buff
+                            unit.frenzyTimer = card.frenzyDuration;
+                            unit.frenzyAttackSpeed = card.frenzyAttackSpeed;
+                            unit.frenzySpeed = card.frenzySpeed;
+                            unit.frenzyDamageTaken = card.frenzyDamageTaken;
+                            
+                            // Visual effect on each buffed unit
+                            addImpactEffect(unit.x, unit.y, card.color, 20, 500);
+                        }
+                    }
+                });
+                
+                // Visual circle at cast location
+                projectiles.push({
+                    start: { x, y },
+                    end: { x, y },
+                    color: card.color,
+                    ttl: 500,
+                    isAOE: true,
+                    radius: radius,
+                    isImpact: true,
+                    spawnTime: performance.now()
+                });
+            }
+        }
+
         function handleCanvasClick(event) {
             if (!selectedCard || isGameOver) return;
 
@@ -1023,7 +1260,8 @@
             const clickX = event.clientX - rect.left;
             const clickY = event.clientY - rect.top;
 
-            if (clickY >= DEPLOYMENT_LINE_Y) {
+            // Spells can be cast anywhere, units only below deployment line
+            if (selectedCard.isSpell || clickY >= DEPLOYMENT_LINE_Y) {
                 if (elixir >= selectedCard.cost) {
                     if (cardCooldowns[selectedCard.id] > 0) return;
                     
@@ -1057,6 +1295,11 @@
             
             if (cardData.isAncient) {
                 cardButton.classList.add('evo-glow');
+            }
+            
+            // Special styling for spells
+            if (cardData.isSpell) {
+                cardButton.style.background = 'linear-gradient(135deg, #ff5733 0%, #c0c0c0 100%)';
             }
 
             cardButton.setAttribute('data-card-id', cardData.id);
@@ -1115,7 +1358,7 @@
                 }
             });
 
-            // FIXED BUG #7 - Clear selected card if elixir becomes insufficient
+            // Clear selected card if elixir becomes insufficient
             if (selectedCard && elixir < selectedCard.cost) {
                 selectedCard = null;
                 document.querySelector('.card-active')?.classList.remove('card-active');
@@ -1126,11 +1369,18 @@
             deckCardPool.innerHTML = '';
             
             ALL_CARD_STATS.forEach(cardData => {
+                // Skip non-collectible cards (like Crystalline Golem)
+                if (cardData.cost === 0) return;
+                
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'deck-card bg-gray-800 p-2 rounded-xl text-white text-center shadow-lg border-b-4 border-gray-700';
                 
                 if (cardData.isAncient) {
                     cardDiv.classList.add('evo-glow');
+                }
+                
+                if (cardData.isSpell) {
+                    cardDiv.style.background = 'linear-gradient(135deg, #ff5733 0%, #c0c0c0 100%)';
                 }
 
                 cardDiv.setAttribute('data-card-id', cardData.id);
@@ -1155,13 +1405,21 @@
         function toggleCardSelection(cardData, cardElement) {
             const cardIndex = playerDeck.findIndex(c => c.id === cardData.id);
 
+            // BUG #42 FIXED - Prevent duplicate cards
             if (cardIndex > -1) {
                 playerDeck.splice(cardIndex, 1);
                 cardElement.classList.remove('selected');
             } else {
                 if (playerDeck.length < 4) {
-                    playerDeck.push(cardData);
-                    cardElement.classList.add('selected');
+                    // Check for duplicates
+                    if (!playerDeck.some(c => c.id === cardData.id)) {
+                        playerDeck.push(cardData);
+                        cardElement.classList.add('selected');
+                    } else {
+                        deckErrorEl.textContent = 'No duplicates allowed!';
+                        deckErrorEl.classList.remove('hidden');
+                        setTimeout(() => deckErrorEl.classList.add('hidden'), 1500);
+                    }
                 } else {
                     deckErrorEl.textContent = 'Deck is full! (Max 4 cards)';
                     deckErrorEl.classList.remove('hidden');
@@ -1187,7 +1445,6 @@
         
         confirmDeckButton.addEventListener('click', () => {
             if (playerDeck.length === 4) {
-                // FIXED BUG #8 - Use class for hiding modal
                 deckSelectionModal.classList.add('hidden');
                 populateGameCards();
                 startGame();
@@ -1202,7 +1459,8 @@
             units = [];
             buildings = [];
             projectiles = [];
-            elixir = 3; // Start with some elixir
+            recentlyDead = [];
+            elixir = 3;
             enemyElixir = 3;
             
             // Reset cooldowns
@@ -1227,7 +1485,7 @@
         }
 
         function showDeckSelection() {
-            deckSelectionModal.classList.remove('hidden'); // FIXED BUG #8 - Use class
+            deckSelectionModal.classList.remove('hidden');
             populateDeckSelectionModal();
         }
 
@@ -1286,11 +1544,52 @@
             updateCardUI();
 
             // Update and draw projectiles
-            updateProjectiles(deltaTime, currentTime); // FIXED BUG #3 & #14 - Pass current time
+            updateProjectiles(deltaTime, currentTime);
 
             // Update units
             units.forEach(unit => unit.update(deltaTime));
-            units = units.filter(unit => unit.hp > 0);
+            
+            // Handle unit death and Crystal Colossus split
+            const newUnits = [];
+            units.forEach(unit => {
+                if (unit.hp <= 0) {
+                    // Store dead unit for resurrection
+                    recentlyDead.push({
+                        unit: unit,
+                        stats: unit.stats,
+                        x: unit.x,
+                        y: unit.y,
+                        team: unit.team,
+                        deathTime: currentTime
+                    });
+                    
+                    // NEW: Crystal Colossus split mechanic
+                    if (unit.stats.splitsOnDeath) {
+                        const golemStats = ALL_CARD_STATS.find(c => c.id === 'crystalline-golem');
+                        for (let i = 0; i < 2; i++) {
+                            const offsetX = (i === 0) ? -25 : 25;
+                            const golemX = unit.x + offsetX;
+                            const golemY = unit.y;
+                            
+                            const golem = new Unit(
+                                golemX, golemY,
+                                golemStats, unit.team,
+                                unit.path, unit.finalTarget
+                            );
+                            newUnits.push(golem);
+                        }
+                        addImpactEffect(unit.x, unit.y, '#7fc9c9', 50, 500);
+                    }
+                } else {
+                    newUnits.push(unit);
+                }
+            });
+            units = newUnits;
+            
+            // Clean up recently dead (older than 3 seconds)
+            recentlyDead = recentlyDead.filter(dead => 
+                currentTime - dead.deathTime < RESURRECTION_WINDOW
+            );
 
             // Update buildings
             buildings.forEach(building => building.update(deltaTime));
@@ -1323,22 +1622,19 @@
             ctx.setLineDash([]);
         }
         
-        // FIXED BUGS #3 & #14 - Improved projectile cleanup
         function updateProjectiles(deltaTime, currentTime) {
             const dt = deltaTime / 1000;
-            const MAX_PROJECTILE_AGE = 5000; // 5 seconds max
+            const MAX_PROJECTILE_AGE = 5000;
             
             for (let i = projectiles.length - 1; i >= 0; i--) {
                 const p = projectiles[i];
                 
-                // FIXED BUG #14 - Remove stale projectiles
                 if (currentTime - p.spawnTime > MAX_PROJECTILE_AGE) {
                     projectiles.splice(i, 1);
                     continue;
                 }
                 
                 if (p.isImpact) {
-                    // Impact effect (FIXED BUG #3)
                     p.ttl -= deltaTime;
                     if (p.ttl <= 0) {
                         projectiles.splice(i, 1);
@@ -1354,7 +1650,6 @@
                     ctx.stroke();
                     ctx.restore();
                 } else {
-                    // Moving projectile
                     const dx = p.end.x - p.start.x;
                     const dy = p.end.y - p.start.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
@@ -1380,14 +1675,14 @@
         function aiTurn() {
             if (isGameOver || enemyElixir < 2) return;
             
-            // AI uses random cards from ALL cards
-            const availableCards = ALL_CARD_STATS.filter(card => card.cost <= enemyElixir);
+            const availableCards = ALL_CARD_STATS.filter(card => 
+                card.cost <= enemyElixir && card.cost > 0 && !card.isSpell
+            );
             if (availableCards.length === 0) return;
             
             const cardToSpawn = availableCards[Math.floor(Math.random() * availableCards.length)];
             enemyElixir -= cardToSpawn.cost;
 
-            // Deploy in enemy zone (top)
             const deployX = Math.random() < 0.5 ? BRIDGE_LEFT_X : BRIDGE_RIGHT_X;
             const deployY = 100 + Math.random() * 50;
 
@@ -1415,13 +1710,12 @@
             aiIntervalId = null;
         }
 
-        // CHANGELOG FUNCTIONALITY
+        // Changelog functionality
         const changelogModal = document.getElementById('changelog-modal');
         const closeChangelogBtn = document.getElementById('close-changelog');
 
         closeChangelogBtn.addEventListener('click', () => {
             changelogModal.classList.add('hidden');
-            // Then show deck selection
             if (hasDeckSelectionUnlocked) {
                 showDeckSelection();
             } else {
@@ -1434,7 +1728,6 @@
         // Initial setup
         document.addEventListener('DOMContentLoaded', () => {
             updateScoreboard();
-            // Changelog shows automatically
         });
     </script>
 </body>
